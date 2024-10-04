@@ -14,5 +14,20 @@ jobs:
           distribution: 'temurin'
           java-version: '11'
           cache: 'maven'
-      - name: Build the source code on ubuntu server 
-        run: mvn package 
+      - name: Build the source code and generate .war file  
+        run: mvn package
+      - name: connect to LAB and deploy code on tomcat9
+        uses: cross-the-world/ssh-scp-ssh-pipelines@latest
+         with:
+          host: 'localhost'
+          user: 'ubuntu'
+          pass: '1234'
+          port: 9090
+          connect_timeout: 10s
+          first_ssh: |
+             sudo chmod 777 /opt/tomcat/webapps
+          scp: |
+             './target/*war' => /opt/tomcat/webapps
+          last_ssh: |
+             sudo systemctl restart tomcat
+
