@@ -19,7 +19,7 @@ jobs:
       - name: connect to LAB and deploy code on tomcat
         uses: cross-the-world/ssh-scp-ssh-pipelines@latest
         with:
-          host: 'localhost'
+          host: '192.168.1.11'
           user: 'ubuntu'
           pass: '1234'
           port: 9090
