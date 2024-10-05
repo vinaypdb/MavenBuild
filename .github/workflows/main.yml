@@ -20,10 +20,10 @@ jobs:
         uses: cross-the-world/ssh-scp-ssh-pipelines@latest
         with:
           host: '192.168.1.11'
-          user: 'ubuntu'
+          user: 'vinay'
           pass: '1234'
           port: 9090
-          connect_timeout: 30s
+          connect_timeout: 60s
           first_ssh: |
              sudo chmod 777 /opt/tomcat/webapps
           scp: |
