@@ -23,7 +23,7 @@ jobs:
           user: 'ubuntu'
           pass: '1234'
           port: 9090
-          connect_timeout: 10s
+          connect_timeout: 30s
           first_ssh: |
              sudo chmod 777 /opt/tomcat/webapps
           scp: |
